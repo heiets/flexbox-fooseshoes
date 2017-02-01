@@ -1,9 +1,21 @@
 var links = document.getElementsByTagName('a');
 var sliderLinks = document.querySelectorAll('.sliderLink');
 var slides = document.querySelectorAll('.slide');
+var menuButton = document.querySelector('.showMenu');
 function noClick(e) {
 	e.preventDefault();
 	return false;
+}
+function showMenu() {
+    var ul = document.getElementsByClassName('menuUl')[0]
+    if (ul.getAttribute('class') == 'menuUl menuHide') {
+        ul.setAttribute('class','menuUl menuShow');
+        menuButton.setAttribute('class','showMenu active');
+    }
+    else {
+        menuButton.setAttribute('class','showMenu no-active');
+        ul.setAttribute('class','menuUl menuHide');
+    }
 }
 function sliderClick(e) {
     e.preventDefault();
@@ -25,11 +37,11 @@ function sliderClick(e) {
     }
 }
 (function () {
+    menuButton.addEventListener("click", showMenu, false);
 	for (var i = 0 ; i < links.length; i++) {
-		links[i].addEventListener("click", noClick, false);
+	    if (links[i].className != 'vklink') links[i].addEventListener("click", noClick, false);
 	}
     for (var j = 0 ; j < sliderLinks.length; j++) {
         sliderLinks[j].addEventListener("click", sliderClick, false);
     }
-
 })();

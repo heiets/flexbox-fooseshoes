@@ -2524,12 +2524,10 @@ a {
 
 header {
   position: fixed;
+  top: 0;
   z-index: 999;
   background-color: white;
   width: 100%; }
-  @media screen and (max-width: 600px) {
-    header {
-      position: static; } }
 
 .header__wrap {
   min-height: 45px;
@@ -2589,14 +2587,42 @@ nav {
   max-width: 960px;
   margin: 0 auto;
   min-height: 60px; }
+  nav .showMenu {
+    width: 100%;
+    border: 0;
+    height: 50px;
+    padding-left: 20px;
+    background-color: white;
+    display: none; }
+    @media screen and (max-width: 600px) {
+      nav .showMenu {
+        display: block; } }
+    nav .showMenu:hover {
+      background-color: #f2f2f2; }
+  nav .active {
+    background-color: #f2f2f2; }
+  nav .no-active {
+    background-color: #fff; }
   nav .nav__links {
     float: left; }
     @media screen and (max-width: 600px) {
       nav .nav__links {
         float: none;
         text-align: center; } }
+    @media screen and (max-width: 600px) {
+      nav .nav__links .menuShow {
+        height: 365px; } }
+    @media screen and (max-width: 600px) {
+      nav .nav__links .menuHide {
+        height: 0px; } }
     nav .nav__links ul {
-      margin-left: 10px; }
+      margin-left: 10px;
+      -webkit-transition: height 1s;
+      transition: height 1s; }
+      @media screen and (max-width: 600px) {
+        nav .nav__links ul {
+          height: 0px;
+          overflow: hidden; } }
       nav .nav__links ul li {
         float: left; }
         @media screen and (max-width: 600px) {
@@ -2624,7 +2650,8 @@ nav {
               border: none; } }
   nav .nav__right {
     float: right;
-    margin-right: 10px; }
+    margin-right: 10px;
+    background-color: #fff; }
     @media screen and (max-width: 800px) {
       nav .nav__right {
         float: left;
@@ -2703,12 +2730,13 @@ nav {
   margin: 0 auto; }
 
 .section-1 {
-  padding-top: 110px;
+  margin-top: 110px;
   min-height: 460px;
   background: url("../img/section-1__bg.jpg") top center;
   background-size: cover; }
   @media screen and (max-width: 800px) {
     .section-1 {
+      margin-top: 160px;
       padding-top: 0;
       padding-bottom: 100px; } }
   .section-1__text {
